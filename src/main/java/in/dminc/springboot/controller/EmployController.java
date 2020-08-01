@@ -1,6 +1,5 @@
 package in.dminc.springboot.controller;
 
-import java.net.ResponseCache;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +56,15 @@ public class EmployController {
 
 		Employ updatedEmp = employRepository.save(emp);
 		return ResponseEntity.ok(updatedEmp);
+	}
+	
+	@GetMapping("/delete-employ/{id}")
+	public void deleteEmploy(@PathVariable Long id) {
+		
+		Employ employ = employRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Employ does not exist with id -> " + id));
+		
+		employRepository.delete(employ);
 	}
 
 }
