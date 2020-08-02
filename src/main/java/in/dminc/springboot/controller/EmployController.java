@@ -18,7 +18,7 @@ import in.dminc.springboot.model.Employ;
 import in.dminc.springboot.repository.EmployRepository;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/ems/api/v1")
 @CrossOrigin(origins = "http://localhost:3000")
 public class EmployController {
 
